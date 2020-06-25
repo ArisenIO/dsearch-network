@@ -28,13 +28,25 @@
     <link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="assets/vendor/custombox/dist/custombox.min.css">
     <link rel="stylesheet" href="assets/vendor/animate.css/animate.min.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/sticky-footer.css">
     <!-- CSS Space Template -->
     <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 
 <body>
 
+        <div id="mySidebar" class="sidebar">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                        <a href="https://peepsx.com/peeros.html">PeerOS</a>
+                        <a href="https://peepsid.com">PeepsID</a>
+                        <a href="https://dbrowser.com">dBrowser</a>
+                        <a href="https://peepsx.com/dwallet.html">dWallet</a>
+                        <a href="https://dsocial.network">dSocial</a>
+                        <a class="active" href="https://dsearch.network">dSearch</a>
+                        <a href="https://dnames.network">dNames</a>
+                        <a href="https://dwebx.org">dWeb</a>
+                        <a href="https://arisen.network">Developers</a>
+    </div>
     <!-- ========== HEADER ========== -->
     <header id="header" class="u-header u-header--abs-top">
         <div class="u-header__section bg-transparent border-0">
@@ -45,8 +57,8 @@
                     <!-- Logo -->
                     <div class="col-4 col-sm-2 mobile_menu">
                         <a class="navbar-brand u-header__navbar-brand" href="index.html" aria-label="Distributed Webs">
-                            <center><img class="u-header__navbar-brand-default" height="50px" src="assets/img/logos/arisen.png" alt="arisen Logo"></center>
-                            <img class="u-header__navbar-brand-mobile" width="150px" src="assets/img/logos/arisen.png" alt="arisen Logo">
+                            <center><img class="u-header__navbar-brand-default" height="50px" src="assets/img/logos/dseek.png" alt="arisen Logo"></center>
+                            <img class="u-header__navbar-brand-mobile" width="150px" src="assets/img/logos/dseek.png" alt="arisen Logo">
                         </a>
                     </div>
                     <!-- End Logo -->
@@ -58,10 +70,10 @@
                         <li><a href="https://dbrowser.com">dBrowser</a></li>
                         <li><a href="https://peepsx.com/dwallet.html">dWallet</a></li>
                         <li><a href="https://dsocial.network">dSocial</a></li>
-                        <li><a href="https://dsearch.network">dSearch</a></li>
+                        <li class="active"><a href="https://dsearch.network">dSearch</a></li>
                         <li><a href="https://dnames.network">dNames</a></li>
                         <li><a href="https://dwebx.org">dWeb</a></li>
-                        <li class="active"><a href="https://arisen.network">Developers</a></li>
+                        <li><a href="https://arisen.network">Developers</a></li>
                     </ul>
                     <!-- Desktop End Navbar -->
                    
@@ -72,13 +84,7 @@
                         <a class="btn btn-sm btn-primary" href="https://peepsx.com/fund.html" style='background-color: rgb(71,116,182); border-color: rgb(71,116,182)' role="button" target="_blank">
                             Help Fund The Revolution
                         </a>
-                        <nav class="navbar-default">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>                        
-                            </button>
-                        </nav>
+                        <button class="openbtn" onclick="openNav()">☰</button>
                     </div>
                     <!-- End Button -->
                 </nav>
@@ -250,7 +256,17 @@
 
     <!-- JS Plugins Init. -->
     <script>
+                // slide Nav bar from left
+        function openNav() {
+             document.getElementById("mySidebar").style.width = "250px";
+            //  document.getElementById("header").style.marginLeft = "250px";
+        }
 
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            //  document.getElementById("header").style.marginLeft= "0";
+        }
+        // slide Nav bar from left end
          axios.get('https://nv6khovry9.execute-api.us-east-1.amazonaws.com/dev/rsn_price_from_bts')
             .then(function (response) {
             document.getElementById('rix-price').innerHTML = `RIX Price : $ ${parseFloat(response.data.data.USD.price).toFixed(4)}`;
